@@ -22,7 +22,7 @@ class Config:
         parser.add_argument('--seed', type=int, default=0, help='Seed for random number generator')
         parser.add_argument('--config_file', type=str, default='', help='Config file path')
         # Dataset config
-        parser.add_argument('--dataset', type=str, default='MIND-small', choices=['200k', 'MIND-small', 'MIND-large'], help='Dataset type')
+        parser.add_argument('--dataset', type=str, default='MIND-large', choices=['200k', 'MIND-small', 'MIND-large'], help='Dataset type')
         parser.add_argument('--tokenizer', type=str, default='MIND', choices=['MIND', 'NLTK'], help='Sentence tokenizer')
         parser.add_argument('--word_threshold', type=int, default=3, help='Word threshold')
         parser.add_argument('--max_title_length', type=int, default=32, help='Sentence truncate length for title')
@@ -31,7 +31,7 @@ class Config:
         parser.add_argument('--negative_sample_num', type=int, default=4, help='Negative sample number of each positive sample')
         parser.add_argument('--max_history_num', type=int, default=50, help='Maximum number of history news for each user')
         parser.add_argument('--epoch', type=int, default=16, help='Training epoch')
-        parser.add_argument('--batch_size', type=int, default=64, help='Batch size')
+        parser.add_argument('--batch_size', type=int, default=16, help='Batch size')
         parser.add_argument('--lr', type=float, default=1e-4, help='Learning rate')
         parser.add_argument('--weight_decay', type=float, default=0, help='Optimizer weight decay')
         parser.add_argument('--gradient_clip_norm', type=float, default=4, help='Gradient clip norm (non-positive value for no clipping)')
