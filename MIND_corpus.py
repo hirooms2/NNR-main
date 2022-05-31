@@ -5,6 +5,8 @@ import collections
 import re
 from nltk.tokenize import word_tokenize
 from torchtext.vocab import GloVe
+from tqdm import tqdm
+
 from config import Config
 import torch
 import numpy as np
@@ -188,7 +190,7 @@ class MIND_Corpus:
                 user_history_category_mask = np.zeros([user_history_num, category_num + 1], dtype=bool)
                 user_history_category_indices = np.zeros([user_history_num, config.max_history_num], dtype=np.int64)
                 with open(os.path.join(prefix, 'behaviors.tsv'), 'r', encoding='utf-8') as behaviors_f:
-                    for line_index, line in enumerate(behaviors_f):
+                    for line_index, line in tqdm(enumerate(behaviors_f)):
                         impression_ID, user_ID, time, history, impressions = line.split('\t')
                         if config.no_self_connection:
                             history_graph = np.zeros([graph_size, graph_size], dtype=np.float32)
